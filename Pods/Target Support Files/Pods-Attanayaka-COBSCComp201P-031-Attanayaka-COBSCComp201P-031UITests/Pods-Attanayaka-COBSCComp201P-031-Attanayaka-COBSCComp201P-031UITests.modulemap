@@ -1,0 +1,6 @@
+framework module Pods_Attanayaka_COBSCComp201P_031_Attanayaka_COBSCComp201P_031UITests {
+  umbrella header "Pods-Attanayaka-COBSCComp201P-031-Attanayaka-COBSCComp201P-031UITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

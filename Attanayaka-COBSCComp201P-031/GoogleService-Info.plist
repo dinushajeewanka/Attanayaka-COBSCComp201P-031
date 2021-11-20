@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>546389255869-1k1abjldudq9ne95spjoge20dci249al.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.546389255869-1k1abjldudq9ne95spjoge20dci249al</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD9SIng8u-F4KyTNz4MVaf7F_f_UKURUj4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>546389255869</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>NIBM.Attanayaka-COBSCComp201P-031</string>
+	<key>PROJECT_ID</key>
+	<string>nibm-parking-402ba</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nibm-parking-402ba.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:546389255869:ios:62c429e82c42391bb179d4</string>
+</dict>
+</plist>
