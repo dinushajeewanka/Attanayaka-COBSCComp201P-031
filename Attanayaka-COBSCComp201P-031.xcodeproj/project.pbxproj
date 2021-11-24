@@ -20,6 +20,9 @@
 		137DC239274D494A004E224F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DC238274D4948004E224F /* HomeView.swift */; };
 		137DC23B274D49EC004E224F /* PersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DC23A274D49EB004E224F /* PersonView.swift */; };
 		137DC23D274D4A12004E224F /* TabViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DC23C274D4A12004E224F /* TabViews.swift */; };
+		13CE4A04274E285B005F1419 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CE4A03274E285B005F1419 /* AppViewModel.swift */; };
+		13CE4A06274E2A5B005F1419 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CE4A05274E2A5B005F1419 /* SignInView.swift */; };
+		13CE4A08274E2BB2005F1419 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CE4A07274E2BB2005F1419 /* SignUpView.swift */; };
 		13DAAFE12748F66900B51DA7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13DAAFE02748F66900B51DA7 /* GoogleService-Info.plist */; };
 		65147CE2A2975AF9808DC48B /* Pods_Attanayaka_COBSCComp201P_031.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA719ECF2290633D73AC4232 /* Pods_Attanayaka_COBSCComp201P_031.framework */; };
 		8C9A17592A48C78974692BFB /* Pods_Attanayaka_COBSCComp201P_031_Attanayaka_COBSCComp201P_031UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6DBB0702E095D105CF07CF /* Pods_Attanayaka_COBSCComp201P_031_Attanayaka_COBSCComp201P_031UITests.framework */; };
@@ -58,6 +61,9 @@
 		137DC238274D4948004E224F /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		137DC23A274D49EB004E224F /* PersonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonView.swift; sourceTree = "<group>"; };
 		137DC23C274D4A12004E224F /* TabViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViews.swift; sourceTree = "<group>"; };
+		13CE4A03274E285B005F1419 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
+		13CE4A05274E2A5B005F1419 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		13CE4A07274E2BB2005F1419 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		13DAAFE02748F66900B51DA7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		183C268238C23F813FC9258F /* Pods-Attanayaka-COBSCComp201P-031-Attanayaka-COBSCComp201P-031UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Attanayaka-COBSCComp201P-031-Attanayaka-COBSCComp201P-031UITests.release.xcconfig"; path = "Target Support Files/Pods-Attanayaka-COBSCComp201P-031-Attanayaka-COBSCComp201P-031UITests/Pods-Attanayaka-COBSCComp201P-031-Attanayaka-COBSCComp201P-031UITests.release.xcconfig"; sourceTree = "<group>"; };
 		393EF65E6C8B1E346E93D830 /* Pods_Attanayaka_COBSCComp201P_031Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Attanayaka_COBSCComp201P_031Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,11 +142,9 @@
 		1366D3EB2746918800047156 /* Attanayaka-COBSCComp201P-031 */ = {
 			isa = PBXGroup;
 			children = (
-				137DC23C274D4A12004E224F /* TabViews.swift */,
-				137DC23A274D49EB004E224F /* PersonView.swift */,
-				137DC238274D4948004E224F /* HomeView.swift */,
-				137DC236274D48BC004E224F /* BookView.swift */,
-				137DC234274D3939004E224F /* ForgetPasswordView.swift */,
+				13CE4A02274E2783005F1419 /* viewModels */,
+				13CE4A01274E276C005F1419 /* Views */,
+				13CE4A00274E2751005F1419 /* Models */,
 				1366D3EC2746918800047156 /* Attanayaka_COBSCComp201P_031App.swift */,
 				13DAAFE02748F66900B51DA7 /* GoogleService-Info.plist */,
 				1366D3EE2746918800047156 /* ContentView.swift */,
@@ -173,6 +177,35 @@
 				1366D4092746919300047156 /* Attanayaka_COBSCComp201P_031UITestsLaunchTests.swift */,
 			);
 			path = "Attanayaka-COBSCComp201P-031UITests";
+			sourceTree = "<group>";
+		};
+		13CE4A00274E2751005F1419 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		13CE4A01274E276C005F1419 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				137DC23A274D49EB004E224F /* PersonView.swift */,
+				137DC238274D4948004E224F /* HomeView.swift */,
+				137DC23C274D4A12004E224F /* TabViews.swift */,
+				137DC234274D3939004E224F /* ForgetPasswordView.swift */,
+				137DC236274D48BC004E224F /* BookView.swift */,
+				13CE4A05274E2A5B005F1419 /* SignInView.swift */,
+				13CE4A07274E2BB2005F1419 /* SignUpView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		13CE4A02274E2783005F1419 /* viewModels */ = {
+			isa = PBXGroup;
+			children = (
+				13CE4A03274E285B005F1419 /* AppViewModel.swift */,
+			);
+			path = viewModels;
 			sourceTree = "<group>";
 		};
 		61DA8298762EFCA601F3483A /* Frameworks */ = {
@@ -424,10 +457,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13CE4A06274E2A5B005F1419 /* SignInView.swift in Sources */,
 				1366D3EF2746918800047156 /* ContentView.swift in Sources */,
 				137DC235274D3939004E224F /* ForgetPasswordView.swift in Sources */,
+				13CE4A04274E285B005F1419 /* AppViewModel.swift in Sources */,
 				1366D3ED2746918800047156 /* Attanayaka_COBSCComp201P_031App.swift in Sources */,
 				137DC23B274D49EC004E224F /* PersonView.swift in Sources */,
+				13CE4A08274E2BB2005F1419 /* SignUpView.swift in Sources */,
 				137DC239274D494A004E224F /* HomeView.swift in Sources */,
 				137DC23D274D4A12004E224F /* TabViews.swift in Sources */,
 				137DC237274D48BC004E224F /* BookView.swift in Sources */,

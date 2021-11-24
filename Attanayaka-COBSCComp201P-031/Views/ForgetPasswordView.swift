@@ -1,5 +1,5 @@
 //
-//  Attanayaka_COBSCComp201P_031App.swift
+//  ForgetPasswordView.swift
 //  Attanayaka-COBSCComp201P-031
 //
 //  Created by DINUSHA on 2021-11-23.
@@ -10,6 +10,7 @@ import Firebase
 
 struct ForgetPasswordView: View {
     @State var email = ""
+    @EnvironmentObject var viewModel: AppViewModel
 
     var body: some View {
         VStack(alignment: .center){
@@ -31,7 +32,7 @@ struct ForgetPasswordView: View {
                 if(email == ""){
                     print("Enter Your Email")
                 }else {
-                    sendPasswordReset(withEmail: email)
+                    viewModel.sendPasswordReset(withEmail: email)
                 }
             }) {
                 Text("Send Email")
@@ -46,16 +47,16 @@ struct ForgetPasswordView: View {
     }
 }
 
-func sendPasswordReset(withEmail email: String, _ callback: ((Error?) -> ())? = nil){
-    
-    Auth.auth().sendPasswordReset(withEmail: email) { error in
-        if error != nil {
-            print(error?.localizedDescription ?? "")
-        } else {
-            print("send email")
-        }
-    }
-}
+//func sendPasswordReset(withEmail email: String, _ callback: ((Error?) -> ())? = nil){
+//
+//    Auth.auth().sendPasswordReset(withEmail: email) { error in
+//        if error != nil {
+//            print(error?.localizedDescription ?? "")
+//        } else {
+//            print("send email")
+//        }
+//    }
+//}
 
 struct ForgetPasswordView_Previews: PreviewProvider {
     static var previews: some View {
