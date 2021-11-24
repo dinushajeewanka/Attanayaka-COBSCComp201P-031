@@ -15,7 +15,8 @@ struct PersonView: View {
         VStack {
             HStack{
                 Text("Settings Page")
-                    .padding(.leading, 0.0)
+//                    .padding(.leading, 30.0)
+                    .padding()
                 Spacer()
             }
             if(bookViewModel.userLoad){
@@ -23,9 +24,23 @@ struct PersonView: View {
 
             } else {
                 VStack(alignment: .center, spacing: 40){
-                    Text(bookViewModel.users.first?.name ?? "")
-                    Text(bookViewModel.users.first?.vehicleNumber ?? "")
-                    Text(bookViewModel.users.first?.email ?? "")
+                    HStack{
+                        Text("Name:")
+                        Text(viewModel.currentUser.name)
+                    }
+                    
+                    HStack{
+                        Text("Vehicle Number:")
+                        Text(viewModel.currentUser.vehicleNumber)
+                    }
+                    
+                    HStack{
+                        Text("Email:")
+                        Text(viewModel.currentUser.email)
+                    }
+                    
+                    
+                    
                 }
             }
 //            Text("You Are Sign In")
@@ -39,7 +54,7 @@ struct PersonView: View {
                             .padding()
                 })
             }.onAppear(){
-                bookViewModel.fetchData()
+                viewModel.loadCurrentUser()
         }
     }
 }

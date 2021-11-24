@@ -12,6 +12,7 @@ class PersonViewModel: ObservableObject {
     @Published var users = [User]()
     @Published var userLoad = false
     
+    
     private var db = Firestore.firestore()
     
     func fetchData() {
@@ -27,9 +28,9 @@ class PersonViewModel: ObservableObject {
                 let name = data["name"] as? String ?? ""
                 let email = data["email"] as? String ?? ""
                 let nic = data["nic"] as? String ?? ""
-                let vehcile_Number = data["vehcile_Number"] as? String ?? ""
+                let vehcile_Number = data["vehicleNumber"] as? String ?? ""
                 let parkId = data["parkId"] as? String ?? ""
-                let userId = queryDocumentSnapshot.documentID  as? String ?? ""
+                let userId = queryDocumentSnapshot.documentID
                 self.userLoad = false
                 return User(documentId: userId, name: name, email: email, vehicleNumber: vehcile_Number, nic: nic, parkId: parkId)
             }

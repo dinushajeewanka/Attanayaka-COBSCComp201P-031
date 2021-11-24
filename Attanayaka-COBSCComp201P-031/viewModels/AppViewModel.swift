@@ -8,9 +8,11 @@
 import Foundation
 import FirebaseAuth
 import Firebase
+import FirebaseFirestore
 
 class AppViewModel : ObservableObject {
-    
+    @Published var currentUser: User = User(documentId:"", name:"", email:"", vehicleNumber: "",  nic:"", parkId: "")
+    private var db = Firestore.firestore()
     let auth = Auth.auth()
     
     @Published var signedIn = false
@@ -90,5 +92,30 @@ class AppViewModel : ObservableObject {
             }
         }
     }
+    
+    func loadCurrentUser() {
+         
+            if(self.isSignedIn){
+                
+                     let uId = auth.currentUser?.uid ?? ""
+                     db.collection("users").document(uId).getDocument{ snapshot, error in
+                         guard let data = snapshot?.data(), error == nil else {
+                             return
+                         }
+                       
+                         self.currentUser.documentId =  snapshot?.documentID ?? ""
+                         self.currentUser.name = data["name"] as? String ?? ""
+                         self.currentUser.email = data["email"] as? String ?? ""
+                         self.currentUser.vehicleNumber = data["vehicleNumber"] as? String ?? ""
+                         self.currentUser.nic = data["nic"] as? String ?? ""
+                         self.currentUser.parkId = data["parkId"] as? String ?? ""
+                     
+                     }
+            }
+           
+            
+          
+
+        }
 }
 //hhhhh
