@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0B06920CECF22A5F2EB18ED7 /* Pods_Attanayaka_COBSCComp201P_031Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393EF65E6C8B1E346E93D830 /* Pods_Attanayaka_COBSCComp201P_031Tests.framework */; };
+		134B4E79274E99A70073DD67 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134B4E78274E99A70073DD67 /* HomeViewModel.swift */; };
+		134B4E7D274E9C3C0073DD67 /* ParkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134B4E7C274E9C3C0073DD67 /* ParkData.swift */; };
+		134B4E83274EA56C0073DD67 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134B4E82274EA56B0073DD67 /* PersonViewModel.swift */; };
+		134B4E87274EA7BB0073DD67 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134B4E86274EA7BA0073DD67 /* User.swift */; };
 		1366D3ED2746918800047156 /* Attanayaka_COBSCComp201P_031App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1366D3EC2746918800047156 /* Attanayaka_COBSCComp201P_031App.swift */; };
 		1366D3EF2746918800047156 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1366D3EE2746918800047156 /* ContentView.swift */; };
 		1366D3F12746919100047156 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1366D3F02746919100047156 /* Assets.xcassets */; };
@@ -46,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		134B4E78274E99A70073DD67 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		134B4E7C274E9C3C0073DD67 /* ParkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkData.swift; sourceTree = "<group>"; };
+		134B4E82274EA56B0073DD67 /* PersonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
+		134B4E86274EA7BA0073DD67 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1366D3E92746918800047156 /* Attanayaka-COBSCComp201P-031.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Attanayaka-COBSCComp201P-031.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1366D3EC2746918800047156 /* Attanayaka_COBSCComp201P_031App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attanayaka_COBSCComp201P_031App.swift; sourceTree = "<group>"; };
 		1366D3EE2746918800047156 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -182,6 +190,8 @@
 		13CE4A00274E2751005F1419 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				134B4E7C274E9C3C0073DD67 /* ParkData.swift */,
+				134B4E86274EA7BA0073DD67 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,6 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				13CE4A03274E285B005F1419 /* AppViewModel.swift */,
+				134B4E78274E99A70073DD67 /* HomeViewModel.swift */,
+				134B4E82274EA56B0073DD67 /* PersonViewModel.swift */,
 			);
 			path = viewModels;
 			sourceTree = "<group>";
@@ -461,8 +473,12 @@
 				1366D3EF2746918800047156 /* ContentView.swift in Sources */,
 				137DC235274D3939004E224F /* ForgetPasswordView.swift in Sources */,
 				13CE4A04274E285B005F1419 /* AppViewModel.swift in Sources */,
+				134B4E83274EA56C0073DD67 /* PersonViewModel.swift in Sources */,
 				1366D3ED2746918800047156 /* Attanayaka_COBSCComp201P_031App.swift in Sources */,
 				137DC23B274D49EC004E224F /* PersonView.swift in Sources */,
+				134B4E87274EA7BB0073DD67 /* User.swift in Sources */,
+				134B4E7D274E9C3C0073DD67 /* ParkData.swift in Sources */,
+				134B4E79274E99A70073DD67 /* HomeViewModel.swift in Sources */,
 				13CE4A08274E2BB2005F1419 /* SignUpView.swift in Sources */,
 				137DC239274D494A004E224F /* HomeView.swift in Sources */,
 				137DC23D274D4A12004E224F /* TabViews.swift in Sources */,
