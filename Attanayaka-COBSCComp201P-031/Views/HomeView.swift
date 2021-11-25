@@ -13,7 +13,7 @@ struct HomeView: View {
     var body: some View {
         VStack{
             HStack{
-                Text("Nibm Parking")
+                Text("Nibm Parking Home Page")
                     .padding(.leading, 30.0)
                 Spacer()
             }                .padding(.top, 40.0)
