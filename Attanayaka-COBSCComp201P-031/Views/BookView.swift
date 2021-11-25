@@ -24,7 +24,7 @@ struct BookView: View {
             }
             
             HStack{
-                Text("User ID:")
+                Text("Registraion Number:")
                 Text(viewModel.currentUser.documentId)
             }
             

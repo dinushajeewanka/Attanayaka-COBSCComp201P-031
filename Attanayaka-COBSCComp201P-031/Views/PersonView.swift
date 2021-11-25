@@ -13,6 +13,8 @@ struct PersonView: View {
     
     var body: some View {
         VStack {
+            
+            
             HStack{
                 Text("Settings Page")
 //                    .padding(.leading, 30.0)
@@ -27,6 +29,16 @@ struct PersonView: View {
                     HStack{
                         Text("Name:")
                         Text(viewModel.currentUser.name)
+                    }
+                    
+                    HStack{
+                        Text("NIC:")
+                        Text(viewModel.currentUser.nic)
+                    }
+                    
+                    HStack{
+                        Text("Registraion Number:")
+                        Text(viewModel.currentUser.documentId)
                     }
                     
                     HStack{
