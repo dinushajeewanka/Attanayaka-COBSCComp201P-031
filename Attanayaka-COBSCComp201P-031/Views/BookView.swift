@@ -18,19 +18,38 @@ struct BookView: View {
             
             HStack{
                 Text("Booking Page")
+                    .font(.headline)
 //                    .padding(.leading, 30.0)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
                     .padding()
                 Spacer()
             }
             
             HStack{
                 Text("Registraion Number:")
+                    .font(.caption2)
+//                    .padding(.leading, 30.0)
+                    .fontWeight(.regular)
+                    .multilineTextAlignment(.center)
                 Text(viewModel.currentUser.documentId)
+                    .font(.caption2)
+//                    .padding(.leading, 30.0)
+                    .fontWeight(.regular)
+                    .multilineTextAlignment(.center)
             }
             
             HStack{
                 Text("Vehicle Number:")
+                    .font(.caption2)
+//                    .padding(.leading, 30.0)
+                    .fontWeight(.regular)
+                    .multilineTextAlignment(.center)
                 Text(viewModel.currentUser.vehicleNumber)
+                    .font(.caption2)
+//                    .padding(.leading, 30.0)
+                    .fontWeight(.regular)
+                    .multilineTextAlignment(.center)
             }
             
             
@@ -44,6 +63,14 @@ struct BookView: View {
                                     }.pickerStyle(WheelPickerStyle())
                                     .frame(maxWidth: .infinity)
                                     .background(Color(UIColor.systemGroupedBackground))
+//            Button(action: {
+//                bookViewModel.updateBookDocument(userId: viewModel.currentUser.documentId, parkId:bookViewModel.book.parkDataId )
+//            }) {
+////                    .foregroundColor(Color.white)
+//            }.frame(width: 200, height: 40, alignment: .center)
+//                .padding(.top, 40.0)
+//                .background(Color.blue)
+//                .clipShape(Capsule())
                                                 
             
         }.onAppear() {

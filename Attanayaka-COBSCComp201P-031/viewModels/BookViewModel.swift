@@ -64,4 +64,31 @@ class BookViewModel: ObservableObject {
             }
         }
     }
+    
+//    func updateBookDocument(userId: String, parkId: String) {
+//        let parkUpdate = Firestore.firestore().collection("parksSlots").document(parkId)
+//        let userUpdate = Firestore.firestore().collection("users").document(userId)
+//
+//        parkUpdate.updateData([
+//            "book": true,
+//            "userId": userId,
+//            "book_time": Timestamp(date: Date())
+//        ]) { err in
+//            if let err = err {
+//                print("Error updating document: \(err)")
+//            } else {
+//                print("Document successfully updated")
+//                userUpdate.updateData([
+//                    "parkId": parkId,
+//                ]) { err in
+//                    if let err = err {
+//                        print("Error updating document: \(err)")
+//                    } else {
+//                        print("Document successfully updated")
+//                    }
+//                }
+//            }
+//        }
+//
+//    }
 }

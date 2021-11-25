@@ -16,8 +16,11 @@ struct PersonView: View {
             
             
             HStack{
-                Text("Settings Page")
+                Text("Setting Page")
+                    .font(.headline)
 //                    .padding(.leading, 30.0)
+                    .fontWeight(.semibold)
+                    .multilineTextAlignment(.center)
                     .padding()
                 Spacer()
             }
