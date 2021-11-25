@@ -35,7 +35,7 @@ class HomeViewModel: ObservableObject {
                 let date: Date = book_time?.dateValue() ?? dateex
 
                 self.parkLoad = false
-                return ParkData(documentId: .init(), park_Name: park_Name, park_type: park_type, book: book, reserve: reserve, book_time: date)
+                return ParkData(id: .init(), park_Name: park_Name, park_type: park_type, book: book, reserve: reserve, book_time: date)
             }
         }
     }

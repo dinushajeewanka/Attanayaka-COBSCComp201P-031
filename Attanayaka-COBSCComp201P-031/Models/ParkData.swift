@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct ParkData: Codable {
-    var documentId: String
+struct ParkData: Identifiable, Codable { 
+    var id: String
     var park_Name: String
     var park_type: String
     var book: Bool

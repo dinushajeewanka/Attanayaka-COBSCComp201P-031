@@ -21,7 +21,7 @@ struct HomeView: View {
                 ProgressView("Waiting for loading").progressViewStyle(CircularProgressViewStyle(tint: Color.blue)).scaleEffect(1, anchor: .center).accentColor(Color.blue)
             } else {
                 VStack{
-                    List(viewModel.parks, id: \.documentId) { item in
+                    List(viewModel.parks, id: \.id) { item in
                         HStack{
                             Text("Parking Name: \(item.park_Name)")
                             Spacer()
