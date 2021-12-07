@@ -11,7 +11,7 @@ import Firebase
 import FirebaseFirestore
 
 class AppViewModel : ObservableObject {
-    @Published var currentUser: User = User(documentId:"", name:"", email:"", vehicleNumber: "",  nic:"", parkId: "")
+    @Published var currentUser: User = User(documentId:"", name:"", email:"", vehicleNumber: "",  nic:"", parkId: "", bookedStatus: false)
     private var db = Firestore.firestore()
     let auth = Auth.auth()
     
@@ -47,6 +47,7 @@ class AppViewModel : ObservableObject {
             "vehicleNumber": vehicleNumber,
             "nic": nic,
             "parkId": "",
+            "bookedStatus": false
         ]
         
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
@@ -109,6 +110,7 @@ class AppViewModel : ObservableObject {
                          self.currentUser.vehicleNumber = data["vehicleNumber"] as? String ?? ""
                          self.currentUser.nic = data["nic"] as? String ?? ""
                          self.currentUser.parkId = data["parkId"] as? String ?? ""
+                         self.currentUser.bookedStatus = data["bookedStatus"] as? Bool ?? false
                      
                      }
             }

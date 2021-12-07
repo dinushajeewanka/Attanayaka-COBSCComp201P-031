@@ -8,10 +8,11 @@
 import Foundation
 
 struct ParkData: Identifiable, Codable { 
-    var id: String
-    var park_Name: String
-    var park_type: String
-    var book: Bool
-    var reserve: Bool
-    var book_time: Date
+        var id: String
+        var number: Int
+        var isVIP: Bool
+        var isAvailable: Bool
+        var bookedTime: String
+        var bookedUser: String
+        var bookedVehicle: String
 }

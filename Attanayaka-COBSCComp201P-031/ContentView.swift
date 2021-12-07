@@ -83,10 +83,12 @@ import Firebase
 struct ContentView: View {
     
     @EnvironmentObject var viewModel: AppViewModel
+    @State private var tabSelection = 1
+    @State private var selectedSlot = ""
     
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(tabSelection: $tabSelection, selectedSlot: $selectedSlot)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }

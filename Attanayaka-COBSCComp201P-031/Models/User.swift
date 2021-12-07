@@ -14,4 +14,5 @@ struct User: Codable {
     var vehicleNumber: String
     var nic: String
     var parkId: String
+    var bookedStatus: Bool
 }
