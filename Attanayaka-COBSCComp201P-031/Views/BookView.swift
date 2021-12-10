@@ -6,83 +6,121 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 struct BookView: View {
-    
-    @StateObject var bookViewModel = BookViewModel()
-    @EnvironmentObject var viewModel:AppViewModel
-    
-    var body: some View {
-        ScrollView{
-        VStack(alignment: .center, spacing: 40){
-            
-            HStack{
-                Text("Booking Page")
-                    .font(.headline)
-//                    .padding(.leading, 30.0)
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                Spacer()
-            }
-            
-            HStack{
-                Text("Registraion Number:")
-                    .font(.caption2)
-//                    .padding(.leading, 30.0)
-                    .fontWeight(.regular)
-                    .multilineTextAlignment(.center)
-                Text(viewModel.currentUser.documentId)
-                    .font(.caption2)
-//                    .padding(.leading, 30.0)
-                    .fontWeight(.regular)
-                    .multilineTextAlignment(.center)
-            }
-            
-            HStack{
-                Text("Vehicle Number:")
-                    .font(.caption2)
-//                    .padding(.leading, 30.0)
-                    .fontWeight(.regular)
-                    .multilineTextAlignment(.center)
-                Text(viewModel.currentUser.vehicleNumber)
-                    .font(.caption2)
-//                    .padding(.leading, 30.0)
-                    .fontWeight(.regular)
-                    .multilineTextAlignment(.center)
-            }
-            
-            
-            Picker(selection: $bookViewModel.book.parkDataId, label: Text("Pick a slot")){
-                ForEach(bookViewModel.parks){ParkData in
-                                            HStack{
-                                                Text(String(ParkData.id))
+    @Binding var tabSelection: Int
+      @EnvironmentObject var authViewModel: AppViewModel
+      @StateObject var bookViewModel = BookViewModel()
+      @State private var isShowingScanner = false
+      
+      @Binding var selectedSlot: String
+      
+      var isDisable: Bool {
+          selectedSlot.isEmpty || selectedSlot == "0"
+      }
+      
+      
+      var body: some View {
+          
+          VStack{
+              
+              if(!authViewModel.currentUser.bookedStatus)
+              {
+                  Form{
+                      Group{
 
-                                            }
-                                        }
-                                    }.pickerStyle(WheelPickerStyle())
-                                    .frame(maxWidth: .infinity)
-                                    .background(Color(UIColor.systemGroupedBackground))
-//            Button(action: {
-//                bookViewModel.updateBookDocument(userId: viewModel.currentUser.documentId, parkId:bookViewModel.book.parkDataId )
-//            }) {
-////                    .foregroundColor(Color.white)
-//            }.frame(width: 200, height: 40, alignment: .center)
-//                .padding(.top, 40.0)
-//                .background(Color.blue)
-//                .clipShape(Capsule())
-                                                
-            
-        }.onAppear() {
-            bookViewModel.bookFetchData()
-        }
-            
-        }
-    }
+
+                          HStack{
+                              Text("Vehicle No :").font(.system(size: 14)).fontWeight(.bold)
+                              Text(authViewModel.currentUser.vehicleNumber).font(.system(size: 16)).foregroundColor(.gray)
+                              Spacer()
+                          }
+
+                      }
+                      HStack{
+                          Text("Parking slot :").font(.system(size: 14)).fontWeight(.bold)
+                          if(!bookViewModel.parks.isEmpty)
+                          {
+                              Picker("Parking slot", selection: $selectedSlot, content:  {
+                                  Text("Select slot").tag("0")
+                                  ForEach(bookViewModel.parks){ slot in
+                                  if(slot.isAvailable)
+                                  {
+                                      Text(String(slot.number)).tag(slot.id)
+                                  }
+                              }
+                              }).pickerStyle(MenuPickerStyle())
+                          }
+                      }
+                      
+                      Group{
+                          HStack{
+                              Spacer()
+                              Button("Book", action: { bookViewModel.Booking(docId: selectedSlot, buser: authViewModel.currentUser.documentId, bvehicle: authViewModel.currentUser.vehicleNumber)}).foregroundColor(.white)
+                                  .padding()
+                                  .background(Color.blue)
+                                  .cornerRadius(8)
+                                  .disabled(isDisable)
+                                  .opacity(isDisable ? 0.5 : 1.0)
+                                  .alert(isPresented: $bookViewModel.bookAlert, content:{
+                                      Alert(title: Text("Info"), message: Text(bookViewModel.bookAlertMsg), dismissButton:  .default(Text("Ok"), action:{self.tabSelection = 1} ))
+                                  })
+                              Spacer()
+                          }.padding()
+                          
+                          HStack{
+                              Spacer()
+                              Button{
+                                  self.isShowingScanner = true
+                              }label: {
+                                  Label("Scan",systemImage: "qrcode.viewfinder")
+                              }.foregroundColor(.white)
+                                  .padding()
+                                  .background(Color.orange)
+                                  .cornerRadius(8)
+                                  .alert(isPresented: $bookViewModel.bookAlert, content:{
+                                      Alert(title: Text("Info"), message: Text(bookViewModel.bookAlertMsg), dismissButton:  .default(Text("Ok"), action:{self.tabSelection = 1} ))
+                                  })
+                              Spacer()
+                          }.padding()
+                      }
+                      
+                      
+                      
+                  }
+
+              }else{
+                  Text("Booking is already in progress!")
+              }
+      
+              
+          }.onAppear{
+              self.authViewModel.loadCurrentUser()
+              self.bookViewModel.bookFetchData()
+              print("selected slot:", selectedSlot)
+                  
+          }
+          .sheet(isPresented: $isShowingScanner ){
+              CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com",completion: self.handleScan)
+          }
+      }
+      func handleScan (result: Result<String, CodeScannerView.ScanError>){
+          self.isShowingScanner = false
+          
+          switch result {
+          case.success(let code):
+              bookViewModel.Booking(docId: code, buser: authViewModel.currentUser.documentId, bvehicle: authViewModel.currentUser.vehicleNumber)
+              print(code)
+          case.failure(let error):
+              print("scan failed",error)
+          }
+      }
+
 }
 
-struct BookView_Previews: PreviewProvider {
-    static var previews: some View {
-        BookView()
-    }
-}
+//struct BookView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BookView()
+//    }
+//}

@@ -51,7 +51,7 @@ struct HomeView: View {
            }.onTapGesture {
                self.viewModel.bookFetchData()
                self.authViewModel.loadCurrentUser()
-           }
+           }.navigationTitle("Home")
            
        }
 }

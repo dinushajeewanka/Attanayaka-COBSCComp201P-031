@@ -95,7 +95,7 @@ struct ContentView: View {
             NavigationView{
                 if(viewModel.signedIn)
                 {
-                    BookView()
+                    BookView(tabSelection: $tabSelection, selectedSlot: $selectedSlot)
                        
                 }else{
                     SignInView()

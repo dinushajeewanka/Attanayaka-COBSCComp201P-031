@@ -15,6 +15,13 @@ class BookViewModel: ObservableObject {
     @Published var userLoad = false
     
     
+    @Published var bookAlert = false
+    @Published var bookAlertMsg = ""
+    
+    @Published var cancelAlert = false
+    @Published var cancelAlertMsg = ""
+    
+    
     private var db = Firestore.firestore()
     
     func fetchData() {
@@ -91,4 +98,71 @@ class BookViewModel: ObservableObject {
 //        }
 //
 //    }
+    func Booking(docId:String, buser:String, bvehicle:String){
+           
+        
+            
+         
+                self.db.collection("parksSlots").document(docId).updateData([
+                    "bookedTime": Date(),
+                    "bookedUser": buser,
+                    "bookedVehicle": bvehicle,
+                    "isAvailable": false,
+                   
+                ]) { err in
+                    if let err = err {
+                        self.bookAlert = true
+                        self.bookAlertMsg = err.localizedDescription
+                    } else {
+                        self.db.collection("users").document(buser).updateData([
+                          
+                            "bookedStatus": true,
+                            "parkId": docId
+                           
+                        ]) { err in
+                            if let err = err {
+                                self.bookAlert = true
+                                self.bookAlertMsg = err.localizedDescription
+                            } else {
+                                self.bookAlert = true
+                                self.bookAlertMsg = "Booking Successfull!"
+                            }
+                        }
+                    }
+                }
+            
+            }
+    func cancelBooking(docId:String, buser:String, bvehicle:String){
+           
+                self.db.collection("parksSlots").document(docId).updateData([
+                    "bookedTime": "",
+                    "bookedUser": "",
+                    "bookedVehicle": "",
+                    "isAvailable": true,
+                   
+                ]) { err in
+                    if let err = err {
+                        self.bookAlert = true
+                        self.bookAlertMsg = err.localizedDescription
+                    } else {
+                        self.db.collection("users").document(buser).updateData([
+                          
+                            "bookedStatus": false,
+                            "parkId": ""
+                           
+                        ]) { err in
+                            if let err = err {
+                                self.cancelAlert = true
+                                self.cancelAlertMsg = err.localizedDescription
+                                print(err.localizedDescription)
+                            } else {
+                                self.cancelAlert = true
+                                self.cancelAlertMsg = "Booking Cancelled"
+                               
+                            }
+                        }
+                    }
+                }
+            
+            }
 }

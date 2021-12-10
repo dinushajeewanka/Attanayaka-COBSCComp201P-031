@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B06920CECF22A5F2EB18ED7 /* Pods_Attanayaka_COBSCComp201P_031Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 393EF65E6C8B1E346E93D830 /* Pods_Attanayaka_COBSCComp201P_031Tests.framework */; };
+		1330BB1B2763C18C004E8728 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 1330BB1A2763C18C004E8728 /* CodeScanner */; };
 		134AF1F2274FDBA100E2886F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 134AF1F1274FDBA100E2886F /* Launch Screen.storyboard */; };
 		134AF1F4274FE5E000E2886F /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134AF1F3274FE5E000E2886F /* BookViewModel.swift */; };
 		134AF1F6274FEC4A00E2886F /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134AF1F5274FEC4A00E2886F /* Book.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1335E73A2763C41E00544649 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		134AF1F1274FDBA100E2886F /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		134AF1F3274FE5E000E2886F /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		134AF1F5274FEC4A00E2886F /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1330BB1B2763C18C004E8728 /* CodeScanner in Frameworks */,
 				65147CE2A2975AF9808DC48B /* Pods_Attanayaka_COBSCComp201P_031.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,6 +157,7 @@
 		1366D3EB2746918800047156 /* Attanayaka-COBSCComp201P-031 */ = {
 			isa = PBXGroup;
 			children = (
+				1335E73A2763C41E00544649 /* Info.plist */,
 				13CE4A02274E2783005F1419 /* viewModels */,
 				13CE4A01274E276C005F1419 /* Views */,
 				13CE4A00274E2751005F1419 /* Models */,
@@ -254,6 +258,9 @@
 			dependencies = (
 			);
 			name = "Attanayaka-COBSCComp201P-031";
+			packageProductDependencies = (
+				1330BB1A2763C18C004E8728 /* CodeScanner */,
+			);
 			productName = "Attanayaka-COBSCComp201P-031";
 			productReference = 1366D3E92746918800047156 /* Attanayaka-COBSCComp201P-031.app */;
 			productType = "com.apple.product-type.application";
@@ -329,6 +336,9 @@
 				Base,
 			);
 			mainGroup = 1366D3E02746918700047156;
+			packageReferences = (
+				1330BB192763C18C004E8728 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = 1366D3EA2746918800047156 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -654,9 +664,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Attanayaka-COBSCComp201P-031/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Attanayaka-COBSCComp201P-031/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "QR scan";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIMainStoryboardFile = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -683,9 +696,12 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Attanayaka-COBSCComp201P-031/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Attanayaka-COBSCComp201P-031/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "QR scan";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIMainStoryboardFile = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -817,6 +833,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1330BB192763C18C004E8728 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1330BB1A2763C18C004E8728 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1330BB192763C18C004E8728 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1366D3E12746918700047156 /* Project object */;
 }
