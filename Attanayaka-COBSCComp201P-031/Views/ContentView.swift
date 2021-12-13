@@ -88,8 +88,9 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            HomeView(tabSelection: $tabSelection, selectedSlot: $selectedSlot)
-                .tabItem {
+            NavigationView{
+                HomeView(tabSelection: $tabSelection, selectedSlot: $selectedSlot)
+            }.tabItem {
                     Label("Home", systemImage: "house")
                 }
             NavigationView{

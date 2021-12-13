@@ -163,7 +163,6 @@
 				13CE4A00274E2751005F1419 /* Models */,
 				1366D3EC2746918800047156 /* Attanayaka_COBSCComp201P_031App.swift */,
 				13DAAFE02748F66900B51DA7 /* GoogleService-Info.plist */,
-				1366D3EE2746918800047156 /* ContentView.swift */,
 				1366D3F02746919100047156 /* Assets.xcassets */,
 				1366D3F22746919100047156 /* Preview Content */,
 			);
@@ -215,6 +214,7 @@
 				13CE4A05274E2A5B005F1419 /* SignInView.swift */,
 				13CE4A07274E2BB2005F1419 /* SignUpView.swift */,
 				134AF1F1274FDBA100E2886F /* Launch Screen.storyboard */,
+				1366D3EE2746918800047156 /* ContentView.swift */,
 				134CD026275FC02700B0F0DE /* SlotView.swift */,
 			);
 			path = Views;

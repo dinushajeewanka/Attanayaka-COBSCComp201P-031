@@ -30,16 +30,16 @@ struct SlotView: View {
                        Text(slotNumber)
                    }
                }.disabled(isDisabled)
-//               if(authViewModel.isSignedIn && authViewModel.currentUser.bookedStatus)
-//               {
-//                   Button("Cancel", action:  {self.cancelBooking()}).foregroundColor(.white)
-//                       .padding()
-//                       .background(Color.red)
-//                       .cornerRadius(8)
-//               }
-//               else{
-//                   Text(bVehicle)
-//               }
+               if(authViewModel.isSignedIn && authViewModel.currentUser.bookedStatus)
+               {
+                   Button("Cancel", action:  {self.cancelBooking()}).foregroundColor(.white)
+                       .padding()
+                       .background(Color.red)
+                       .cornerRadius(8)
+               }
+               else{
+                   Text(bVehicle)
+               }
               
            }
           
