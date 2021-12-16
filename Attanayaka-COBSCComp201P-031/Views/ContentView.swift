@@ -87,7 +87,7 @@ struct ContentView: View {
     @State private var selectedSlot = ""
     
     var body: some View {
-        TabView {
+        TabView (selection: $tabSelection){
             NavigationView{
                 HomeView(tabSelection: $tabSelection, selectedSlot: $selectedSlot)
             }.tabItem {

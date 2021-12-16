@@ -17,7 +17,7 @@ struct SlotView: View {
        var opacity = 1.0
        var isDisabled = false
        var bVehicle: String
-       var cancelBooking:()-> Void
+     
        
        
        
@@ -30,16 +30,8 @@ struct SlotView: View {
                        Text(slotNumber)
                    }
                }.disabled(isDisabled)
-               if(authViewModel.isSignedIn && authViewModel.currentUser.bookedStatus)
-               {
-                   Button("Cancel", action:  {self.cancelBooking()}).foregroundColor(.white)
-                       .padding()
-                       .background(Color.red)
-                       .cornerRadius(8)
-               }
-               else{
-                   Text(bVehicle)
-               }
+               Text(bVehicle)
+
               
            }
           

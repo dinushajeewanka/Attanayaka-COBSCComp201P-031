@@ -19,24 +19,28 @@ struct HomeView: View {
        var body: some View {
                VStack{
                    
-                    
-                   LazyVGrid(columns: gItem, alignment: .center, content: {
-                               ForEach(viewModel.parks){ slot in
-                                   
-                                   if(authViewModel.isSignedIn && authViewModel.currentUser.bookedStatus)
-                                   {
-                                       if(authViewModel.currentUser.documentId == slot.bookedUser){
-                                           SlotView(backgroundColor: slot.isVIP ? Color.purple : Color.gray, slotNumber: String(slot.number), function: {self.selectedSlot = slot.id; self.tabSelection = 2}, opacity: slot.isAvailable ? 1.0 : 0.3, isDisabled: slot.isAvailable ? false : true, bVehicle: slot.bookedVehicle, cancelBooking: { viewModel.cancelBooking(docId: slot.id, buser: authViewModel.currentUser.documentId, bvehicle: authViewModel.currentUser.vehicleNumber)})
+                   if(authViewModel.isSignedIn && authViewModel.currentUser.bookedStatus){
+                       Text("Booking is already in progress!")
+                       Button("Cancel", action:  {viewModel.cancelBooking(docId: authViewModel.currentUser.parkId, buser: authViewModel.currentUser.documentId, bvehicle: authViewModel.currentUser.vehicleNumber)}).foregroundColor(.white)
+                           .padding()
+                           .background(Color.red)
+                           .cornerRadius(8)
+                   }else{
+                       LazyVGrid(columns: gItem, alignment: .center, content: {
+                                   ForEach(viewModel.parks){ slot in
+                                       
+                                    if(authViewModel.isSignedIn && !authViewModel.currentUser.bookedStatus){
+                                           SlotView(backgroundColor: slot.isVIP ? Color.purple : Color.gray, slotNumber: String(slot.number), function: {self.selectedSlot = slot.id; self.tabSelection = 2}, opacity: slot.isAvailable ? 1.0 : 0.3, isDisabled: slot.isAvailable ? false : true, bVehicle: slot.bookedVehicle)
+                                       }else if(!authViewModel.isSignedIn)
+                                       {
+                                           SlotView(backgroundColor: slot.isVIP ? Color.purple : Color.gray, slotNumber: String(slot.number), function: {self.selectedSlot = slot.id; self.tabSelection = 2}, opacity: slot.isAvailable ? 1.0 : 0.3, isDisabled: slot.isAvailable ? false : true, bVehicle: slot.bookedVehicle)
                                        }
-
-                                   }else if(authViewModel.isSignedIn && !authViewModel.currentUser.bookedStatus){
-                                       SlotView(backgroundColor: slot.isVIP ? Color.purple : Color.gray, slotNumber: String(slot.number), function: {self.selectedSlot = slot.id; self.tabSelection = 2}, opacity: slot.isAvailable ? 1.0 : 0.3, isDisabled: slot.isAvailable ? false : true, bVehicle: slot.bookedVehicle, cancelBooking: { viewModel.cancelBooking(docId: slot.id, buser: authViewModel.currentUser.documentId, bvehicle: authViewModel.currentUser.vehicleNumber)})
-                                   }else if(!authViewModel.isSignedIn){
-                                       SlotView(backgroundColor: slot.isVIP ? Color.purple : Color.gray, slotNumber: String(slot.number), function: {self.selectedSlot = slot.id; self.tabSelection = 2}, opacity: slot.isAvailable ? 1.0 : 0.3, isDisabled: slot.isAvailable ? false : true, bVehicle: slot.bookedVehicle, cancelBooking: { viewModel.cancelBooking(docId: slot.id, buser: authViewModel.currentUser.documentId, bvehicle: authViewModel.currentUser.vehicleNumber)})
+                                   
                                    }
-                               
-                               }
-                           })
+                               })
+                   }
+                    
+                   
                        
                    Spacer()
                    
