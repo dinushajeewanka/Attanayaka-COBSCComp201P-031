@@ -31,6 +31,8 @@ struct SlotView: View {
                    }
                }.disabled(isDisabled)
                Text(bVehicle)
+               
+               
 
               
            }
@@ -44,3 +46,4 @@ struct SlotView: View {
 //        SlotView()
 //    }
 //}
+
