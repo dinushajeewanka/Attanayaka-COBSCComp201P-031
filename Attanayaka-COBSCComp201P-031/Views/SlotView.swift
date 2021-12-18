@@ -27,7 +27,7 @@ struct SlotView: View {
                {
                    ZStack{
                        Rectangle().fill(backgroundColor).frame(width: 75, height: 75).opacity(1.0)
-                       Text(slotNumber)
+                       Text(slotNumber).foregroundColor(.white)
                    }
                }.disabled(isDisabled)
                Text(bVehicle)

@@ -12,12 +12,13 @@ struct BookView: View {
     @Binding var tabSelection: Int
       @EnvironmentObject var authViewModel: AppViewModel
       @StateObject var bookViewModel = BookViewModel()
+      @StateObject var locationViewModel = LocationViewModel()
       @State private var isShowingScanner = false
       
       @Binding var selectedSlot: String
       
       var isDisable: Bool {
-          selectedSlot.isEmpty || selectedSlot == "0"
+          selectedSlot.isEmpty || selectedSlot == "0" && locationViewModel.checkLocationDistance()>1500
       }
       
       
@@ -74,16 +75,16 @@ struct BookView: View {
                               Button{
                                   self.isShowingScanner = true
                               }label: {
-                                  Label("Scan",systemImage: "qrcode.viewfinder")
+                                  Text("Scan")
                               }.foregroundColor(.white)
                                   .padding()
-                                  .background(Color.orange)
+                                  .background(Color.green)
                                   .cornerRadius(8)
                                   .alert(isPresented: $bookViewModel.bookAlert, content:{
                                       Alert(title: Text("Info"), message: Text(bookViewModel.bookAlertMsg), dismissButton:  .default(Text("Ok"), action:{self.tabSelection = 1} ))
                                   })
                               Spacer()
-                          }.padding()
+                          }.navigationTitle("Booking")
                       }
                       
                       
@@ -99,6 +100,9 @@ struct BookView: View {
               self.authViewModel.loadCurrentUser()
               self.bookViewModel.bookFetchData()
               print("selected slot:", selectedSlot)
+              
+              
+              print(locationViewModel.checkLocationDistance())
                   
           }
           .sheet(isPresented: $isShowingScanner ){

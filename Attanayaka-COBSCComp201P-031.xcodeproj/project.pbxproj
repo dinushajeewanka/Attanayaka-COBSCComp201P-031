@@ -23,6 +23,7 @@
 		1366D3FE2746919200047156 /* Attanayaka_COBSCComp201P_031Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1366D3FD2746919200047156 /* Attanayaka_COBSCComp201P_031Tests.swift */; };
 		1366D4082746919300047156 /* Attanayaka_COBSCComp201P_031UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1366D4072746919300047156 /* Attanayaka_COBSCComp201P_031UITests.swift */; };
 		1366D40A2746919300047156 /* Attanayaka_COBSCComp201P_031UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1366D4092746919300047156 /* Attanayaka_COBSCComp201P_031UITestsLaunchTests.swift */; };
+		136DEEDB276E481500FE2EC6 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136DEEDA276E481500FE2EC6 /* LocationViewModel.swift */; };
 		137DC235274D3939004E224F /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DC234274D3939004E224F /* ForgetPasswordView.swift */; };
 		137DC237274D48BC004E224F /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DC236274D48BC004E224F /* BookView.swift */; };
 		137DC239274D494A004E224F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 137DC238274D4948004E224F /* HomeView.swift */; };
@@ -71,6 +72,7 @@
 		1366D4032746919300047156 /* Attanayaka-COBSCComp201P-031UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Attanayaka-COBSCComp201P-031UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1366D4072746919300047156 /* Attanayaka_COBSCComp201P_031UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attanayaka_COBSCComp201P_031UITests.swift; sourceTree = "<group>"; };
 		1366D4092746919300047156 /* Attanayaka_COBSCComp201P_031UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attanayaka_COBSCComp201P_031UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		136DEEDA276E481500FE2EC6 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		137DC234274D3939004E224F /* ForgetPasswordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
 		137DC236274D48BC004E224F /* BookView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		137DC238274D4948004E224F /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				13CE4A03274E285B005F1419 /* AppViewModel.swift */,
 				134B4E82274EA56B0073DD67 /* PersonViewModel.swift */,
 				134AF1F3274FE5E000E2886F /* BookViewModel.swift */,
+				136DEEDA276E481500FE2EC6 /* LocationViewModel.swift */,
 			);
 			path = viewModels;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				13CE4A04274E285B005F1419 /* AppViewModel.swift in Sources */,
 				134B4E83274EA56C0073DD67 /* PersonViewModel.swift in Sources */,
 				134CD027275FC02800B0F0DE /* SlotView.swift in Sources */,
+				136DEEDB276E481500FE2EC6 /* LocationViewModel.swift in Sources */,
 				134AF1F4274FE5E000E2886F /* BookViewModel.swift in Sources */,
 				1366D3ED2746918800047156 /* Attanayaka_COBSCComp201P_031App.swift in Sources */,
 				137DC23B274D49EC004E224F /* PersonView.swift in Sources */,

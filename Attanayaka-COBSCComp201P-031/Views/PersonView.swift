@@ -12,18 +12,19 @@ struct PersonView: View {
     @StateObject var bookViewModel = PersonViewModel()
     
     var body: some View {
+        ScrollView{
+            
         VStack {
             
-            
-            HStack{
-                Text("Setting Page")
-                    .font(.headline)
-//                    .padding(.leading, 30.0)
-                    .fontWeight(.semibold)
-                    .multilineTextAlignment(.center)
-                    .padding()
-                Spacer()
-            }
+//            HStack{
+//                Text("Setting Page")
+//                    .font(.headline)
+////                    .padding(.leading, 30.0)
+//                    .fontWeight(.semibold)
+//                    .multilineTextAlignment(.center)
+//                    .padding()
+//                Spacer()
+//            }
             if(bookViewModel.userLoad){
                 ProgressView("Waiting for loading").progressViewStyle(CircularProgressViewStyle(tint: Color.blue)).scaleEffect(1, anchor: .center).accentColor(Color.blue)
 
@@ -70,7 +71,9 @@ struct PersonView: View {
                 })
             }.onAppear(){
                 viewModel.loadCurrentUser()
-        }
+                
+        }.navigationTitle("Setting")
+       }
     }
 }
 struct PersonView_Previews: PreviewProvider {

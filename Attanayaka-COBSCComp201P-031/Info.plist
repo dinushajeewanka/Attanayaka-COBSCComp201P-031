@@ -4,5 +4,7 @@
 <dict>
 	<key>NSCameraUsageDescription</key>
 	<string>QR scan</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please Allow Access For Get Your Location</string>
 </dict>
 </plist>

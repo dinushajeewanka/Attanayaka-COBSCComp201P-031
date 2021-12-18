@@ -17,6 +17,7 @@ struct HomeView: View {
        
        
        var body: some View {
+           ScrollView{
                VStack{
                    
                    if(authViewModel.isSignedIn && authViewModel.currentUser.bookedStatus){
@@ -45,6 +46,7 @@ struct HomeView: View {
                    Spacer()
                    
                }.navigationTitle("Home")
+               
                .onAppear(){
                    self.viewModel.bookFetchData()
                    self.authViewModel.loadCurrentUser()
@@ -52,6 +54,8 @@ struct HomeView: View {
                    self.viewModel.bookFetchData()
                    self.authViewModel.loadCurrentUser()
                }
+           
+           }
            
        }
 }

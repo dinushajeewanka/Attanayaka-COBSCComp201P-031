@@ -16,10 +16,13 @@ struct Attanayaka_COBSCComp201P_031App: App {
     
     var body: some Scene {
         WindowGroup {
-//            let viewModel = AppViewModel()
-//            ContentView()
+            let viewModel = AppViewModel()
+            
+            ContentView()
+             .environmentObject(viewModel)
+            
+//            SignInView()
 //                .environmentObject(viewModel)
-            SignInView()
         }
     }
 }
