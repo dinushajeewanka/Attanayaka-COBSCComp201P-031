@@ -16,7 +16,14 @@ class AppViewModel : ObservableObject {
     let auth = Auth.auth()
     
     @Published var signedIn = false
-    
+    @Published var errorMessage = ""
+    @Published var errorAlert = false
+    @Published var errorSignUpMessage = ""
+    @Published var errorSignUpAlert = false
+    @Published var errorForgetPasswordAlert = false
+    @Published var errorForgetPasswordMessage = ""
+    @Published var isSucessForget = false
+
     var isSignedIn: Bool{
         return auth.currentUser != nil
     }
@@ -24,13 +31,17 @@ class AppViewModel : ObservableObject {
     func singIn(email:String, password: String) {
         auth.signIn(withEmail: email,
                     password:password) { [weak self] result,error in
-            guard result != nil, error == nil else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                //success
-                self?.signedIn = true
+         
+            if error != nil {
+                self?.errorMessage = error?.localizedDescription ?? "Please Try again"
+                self?.errorAlert = true
+            } else {
+                DispatchQueue.main.async {
+                    //success
+                    self?.errorMessage = ""
+                    self?.errorAlert = false
+                    self?.signedIn = true
+                }
             }
             
         }
@@ -51,27 +62,30 @@ class AppViewModel : ObservableObject {
         ]
         
         auth.createUser(withEmail: email, password: password) { [weak self] result, error in
-            guard result != nil, error == nil else {
-                return
-            }
-            
-            guard let userID = Auth.auth().currentUser?.uid else { return }
-            
-            do{
-                db.collection("users").document(userID).setData(userData) { err in
-                    if let err = err {
-                        print("Error writing document: \(err)")
-                    } else {
-                        print("Document successfully written!")
+            let userID = Auth.auth().currentUser?.uid
+            if error != nil {
+                self?.errorSignUpMessage = error?.localizedDescription ?? "Please Try again"
+                self?.errorSignUpAlert = true
+            }else{
+                do{
+                    db.collection("users").document(userID!).setData(userData) { err in
+                        if let err = err {
+                            print("Error writing document: \(err)")
+                            self?.errorSignUpMessage = "Error writing document: \(err)"
+                            self?.errorSignUpAlert = true
+                        } else {
+                            self?.errorSignUpMessage = ""
+                            self?.errorSignUpAlert = false
+                            print("Document successfully written!")
+                        }
                     }
                 }
+                
+                DispatchQueue.main.async {
+                    //success
+                    self?.signedIn = true
+                }
             }
-            
-            DispatchQueue.main.async {
-                //success
-                self?.signedIn = true
-            }
-            
         }
         
     }
@@ -88,8 +102,14 @@ class AppViewModel : ObservableObject {
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if error != nil {
                 print(error?.localizedDescription ?? "")
+                self.errorForgetPasswordMessage = error?.localizedDescription ?? ""
+                self.errorForgetPasswordAlert = true
+                self.isSucessForget = false
             } else {
                 print("send email")
+                self.errorForgetPasswordMessage = ""
+                self.errorForgetPasswordAlert = false
+                self.isSucessForget = true
             }
         }
     }

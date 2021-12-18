@@ -20,7 +20,16 @@ struct ForgetPasswordView: View {
                 .aspectRatio(contentMode: .fit)
                 .padding(.top)
                 .frame(height:UIScreen.main.bounds.height/3.2)
-            Text("Enter Your Email Here")
+            if(viewModel.isSucessForget){
+                Text("Sucessfully send email. please check your email and reset it.")
+                    .fontWeight(.medium)
+                    .foregroundColor(Color.green)
+                    .multilineTextAlignment(.center)
+
+            }else{
+                Text("Enter Your Email Here")
+
+            }
             Spacer()
             TextField("Email Address", text: $email )
                 .disableAutocorrection(true)
@@ -31,6 +40,8 @@ struct ForgetPasswordView: View {
             Button(action: {
                 if(email == ""){
                     print("Enter Your Email")
+                    viewModel.errorForgetPasswordAlert = true
+                    viewModel.errorForgetPasswordMessage = "Please Enter Your Valid Email"
                 }else {
                     viewModel.sendPasswordReset(withEmail: email)
                 }
@@ -41,6 +52,9 @@ struct ForgetPasswordView: View {
                 .padding()
                 .background(Color.blue)
                 .clipShape(Capsule())
+                .alert(isPresented: $viewModel.errorForgetPasswordAlert) { () -> Alert in
+                    Alert(title: Text(viewModel.errorForgetPasswordMessage))
+                }
             Spacer()
 
         }

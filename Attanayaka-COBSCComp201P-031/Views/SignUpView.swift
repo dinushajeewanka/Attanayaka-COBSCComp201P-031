@@ -53,13 +53,24 @@ struct SignUpView: View {
                         .background(Color(.secondarySystemBackground))
                     
                     Button(action: {
-                        
-                        guard !email.isEmpty, !password.isEmpty, !name.isEmpty, !vehicleNumber.isEmpty, !nic.isEmpty else {
-                            return
+                        if (name == "") {
+                            viewModel.errorSignUpMessage = "Please Enter Your Name"
+                            viewModel.errorSignUpAlert = true
+                        } else if(vehicleNumber == ""){
+                            viewModel.errorSignUpAlert = true
+                            viewModel.errorSignUpMessage = "Please Enter Your Vehicle Number"
+                        } else if(nic == ""){
+                            viewModel.errorSignUpAlert = true
+                            viewModel.errorSignUpMessage = "Please Enter Your NIC"
+                        } else if(email == ""){
+                            viewModel.errorSignUpAlert = true
+                            viewModel.errorSignUpMessage = "Please Enter Your Email"
+                        } else if(password == ""){
+                            viewModel.errorSignUpAlert = true
+                            viewModel.errorSignUpMessage = "Please Enter Your Password"
+                        } else{
+                            viewModel.singUp(email: email, password: password, name: name, vehicleNumber: vehicleNumber, nic:nic )
                         }
-                        
-                        viewModel.singUp(email: email, password: password, name: name, vehicleNumber: vehicleNumber, nic:nic )
-                        
                     }, label:{
                         Text("Create Account")
                             .foregroundColor(Color.white)
@@ -67,7 +78,9 @@ struct SignUpView: View {
                             .cornerRadius(8)
                             .background(Color.blue)
                             
-                    })
+                    }).alert(isPresented: $viewModel.errorSignUpAlert) { () -> Alert in
+                        Alert(title: Text(viewModel.errorSignUpMessage))
+                    }
                         
                 }
                 .padding()
